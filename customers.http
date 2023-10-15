@@ -1,0 +1,27 @@
+######## 1. Membuat Index ########
+
+### Create index customers
+PUT http://localhost:9200/customers
+
+######## 2. Menghapus Index ########
+### Delete index customers
+DELETE http://localhost:9200/customers
+
+######## 3. Mapping Index ########
+### Get customers mapping
+GET http://localhost:9200/customers/_mapping
+
+### Update customers mapping date detection & number detection
+PUT http://localhost:9200/customers/_mapping
+Content-Type: application/json
+
+{
+    "date_detection": true,
+    "dynamic_date_formats" : [
+        "yyyy-MM-dd HH:mm:ss",
+        "yyyy-MM-dd",
+        "yyyy/MM/dd HH:mm:ss",
+        "yyyy/MM/dd"
+    ],
+    "numeric_detection": true
+}

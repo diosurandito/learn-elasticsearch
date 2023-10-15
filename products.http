@@ -1,0 +1,23 @@
+### Create index products
+PUT http://localhost:9200/products
+
+### Delete index products
+DELETE http://localhost:9200/products
+
+### Get products mapping
+GET http://localhost:9200/products/_mapping
+
+### Update products mapping date detection & number detection
+PUT http://localhost:9200/products/_mapping
+Content-Type: application/json
+
+{
+    "date_detection": true,
+    "dynamic_date_formats" : [
+        "yyyy-MM-dd HH:mm:ss",
+        "yyyy-MM-dd",
+        "yyyy/MM/dd HH:mm:ss",
+        "yyyy/MM/dd"
+    ],
+    "numeric_detection": true
+}

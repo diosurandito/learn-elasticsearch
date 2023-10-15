@@ -1,0 +1,23 @@
+### Create index orders
+PUT http://localhost:9200/orders
+
+### Delete index orders
+DELETE http://localhost:9200/orders
+
+### Get orders mapping
+GET http://localhost:9200/orders/_mapping
+
+### Update orders mapping date detection & number detection
+PUT http://localhost:9200/orders/_mapping
+Content-Type: application/json
+
+{
+    "date_detection": true,
+    "dynamic_date_formats" : [
+        "yyyy-MM-dd HH:mm:ss",
+        "yyyy-MM-dd",
+        "yyyy/MM/dd HH:mm:ss",
+        "yyyy/MM/dd"
+    ],
+    "numeric_detection": true
+}

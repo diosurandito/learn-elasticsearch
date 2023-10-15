@@ -1,0 +1,88 @@
+
+######## 1. Membuat Index ########
+
+### Create index customers
+PUT http://localhost:9200/customers
+
+### Create index products
+PUT http://localhost:9200/products
+
+### Create index orders
+PUT http://localhost:9200/orders
+
+######## -------------------- ########
+
+
+######## 2. Menghapus Index ########
+### Delete index customers
+DELETE http://localhost:9200/customers
+
+### Delete index products
+DELETE http://localhost:9200/products
+
+### Delete index orders
+DELETE http://localhost:9200/orders
+
+### Get all indexes
+GET http://localhost:9200/_cat/indices?v
+
+######## -------------------- ########
+
+
+######## 3. Mapping Index ########
+
+### Get customers mapping
+GET http://localhost:9200/customers/_mapping
+
+### Update customers mapping date detection & number detection
+PUT http://localhost:9200/customers/_mapping
+Content-Type: application/json
+
+{
+    "date_detection": true,
+    "dynamic_date_formats" : [
+        "yyyy-MM-dd HH:mm:ss",
+        "yyyy-MM-dd",
+        "yyyy/MM/dd HH:mm:ss",
+        "yyyy/MM/dd"
+    ],
+    "numeric_detection": true
+}
+
+### Get products mapping
+GET http://localhost:9200/products/_mapping
+
+### Update products mapping date detection & number detection
+PUT http://localhost:9200/products/_mapping
+Content-Type: application/json
+
+{
+    "date_detection": true,
+    "dynamic_date_formats" : [
+        "yyyy-MM-dd HH:mm:ss",
+        "yyyy-MM-dd",
+        "yyyy/MM/dd HH:mm:ss",
+        "yyyy/MM/dd"
+    ],
+    "numeric_detection": true
+}
+
+### Get orders mapping
+GET http://localhost:9200/orders/_mapping
+
+### Update orders mapping date detection & number detection
+PUT http://localhost:9200/orders/_mapping
+Content-Type: application/json
+
+{
+    "date_detection": true,
+    "dynamic_date_formats" : [
+        "yyyy-MM-dd HH:mm:ss",
+        "yyyy-MM-dd",
+        "yyyy/MM/dd HH:mm:ss",
+        "yyyy/MM/dd"
+    ],
+    "numeric_detection": true
+}
+
+######## -------------------- ########
